@@ -32,8 +32,13 @@ describe ("garage", function(){
 
   it("Garage removes car from inventory on sale", function(){
     garage.sellCar(car1);
-    console.log(garage.showInventory());
     assert.equal(2, garage.inventory.length);
+    assert.equal(350000, garage.balance);
+  })
+
+  it("Garage can financial report of total value of cash and inventory value", function(){
+    assert.equal(815000, garage.financialReport());
+
   })
 
 });

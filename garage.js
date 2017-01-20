@@ -21,6 +21,16 @@ Garage.prototype = {
     var soldCarIndex = this.inventory.indexOf(car);
     console.log(soldCarIndex);
     this.inventory.splice(soldCarIndex, 1);
+
+    this.balance += car.price;
+    return this.balance;
+  },
+
+  financialReport: function(){
+    var inventoryValue = this.inventory.reduce(function(acc, car){
+        return acc + car.price;
+    },0);
+    return inventoryValue + this.balance;
   }
 }
 
