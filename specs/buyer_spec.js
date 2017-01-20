@@ -29,4 +29,19 @@ describe("buyer", function(){
     assert.equal(200000, garage.balance);
     assert.equal(665000, garage.financialReport());
   })
+
+  it("buyer can sell a car", function(){
+    buyer.buyCar(car1);
+    buyer.buyCar(car2);
+    assert.equal(3, garage.inventory.length);
+    assert.equal(665000, garage.financialReport());
+    assert.equal(2, buyer.collection.length);
+    assert.equal(525000, buyer.bankAccount);
+    buyer.sellCar(car1);
+    assert.equal(1, buyer.collection.length);
+    assert.equal(625000,buyer.bankAccount);
+    garage.addCar(car1);
+    assert.equal(4, garage.inventory.length);
+    assert.equal(765000, garage.financialReport());
+  })
 });

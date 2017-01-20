@@ -9,10 +9,13 @@ Buyer.prototype = {
     this.collection.push(car);
     this.bankAccount -= car.price;
   },
-  // sellCar: function(car){
-  //   soldCarIndex = this.collection.indexOf(car);
-  //   this.collection.splice(soldCarIndex,1);
-  // }
+
+  sellCar: function(car){
+    soldCarIndex = this.collection.indexOf(car);
+    this.collection.splice(soldCarIndex,1);
+    this.bankAccount += car.price;
+  }
+
 
 }
 
